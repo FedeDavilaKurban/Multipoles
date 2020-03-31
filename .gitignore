@@ -1,0 +1,6 @@
+plots/
+marcecodes/
+data/
+codes/*.txt
+codes/*.png
+codes/variancesplots_*
