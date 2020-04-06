@@ -13,7 +13,7 @@ import os
 box=1.
 dk=0.7
 
-Nran='1x87'
+Nran='8x87'
 
 zr_dir = '/home/fdavilakurban/mnt/clemente2/{}'.format(Nran)
 plot_dir= os.path.join('/home/fdavilakurban/Proyectos/HomDist/Multipoles/plots/check_pks/zelrec/'+Nran+'/')
@@ -22,7 +22,7 @@ plot_dir= os.path.join('/home/fdavilakurban/Proyectos/HomDist/Multipoles/plots/c
 files = os.listdir(zr_dir)
 files.sort()
 
-for f in files:
+for f in files[:2]:
 	
 	print(files.index(f),'/',len(files)-1)
 	

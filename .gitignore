@@ -4,3 +4,4 @@ data/
 codes/*.txt
 codes/*.png
 codes/variancesplots_*
+.vscode/
