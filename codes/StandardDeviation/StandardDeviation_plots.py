@@ -23,6 +23,7 @@ ran_1 = ascii.read('../../data/out/std_xi/std_ran_{}.txt'.format(87**3))
 ran_2 = ascii.read('../../data/out/std_xi/std_ran_{}.txt'.format(2*87**3))
 ran_4 = ascii.read('../../data/out/std_xi/std_ran_{}.txt'.format(4*87**3))
 ran_8 = ascii.read('../../data/out/std_xi/std_ran_{}.txt'.format(8*87**3))
+ran_16 = ascii.read('../../data/out/std_xi/std_ran_{}.txt'.format(16*87**3))
 
 #RanCross
 rc_1 = ascii.read('../../data/out/std_xi/std_rc_{}.txt'.format(87**3))

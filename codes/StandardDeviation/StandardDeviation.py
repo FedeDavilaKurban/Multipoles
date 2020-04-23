@@ -61,3 +61,7 @@ for Nran in [87**3,2*87**3,4*87**3,8*87**3]:
 	#	print('CCVT')
 	#	exec(open("./StandardDeviation_Ccvt.py").read())
 
+for Nran in [16*87**3]:
+	print('Randoms16')
+	exec(open("./StandardDeviation_Ran.py").read())
+
