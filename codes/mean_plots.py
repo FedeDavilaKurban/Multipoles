@@ -198,7 +198,7 @@ for Nran in [87**3,2*87**3,4*87**3,8*87**3]:
 	#f.suptitle(r'$R = {}Mpc$'.format(nr[ir]),fontsize=15)
 	f.subplots_adjust(hspace=0)
 	f.tight_layout()
-	f.savefig('../plots/Mean/mean_{}.png'.format(Nran),dpi=f.dpi)
+	f.savefig('../plots/mean/mean_{}.png'.format(Nran),dpi=f.dpi)
 	#plt.show()
 	plt.close()
 
