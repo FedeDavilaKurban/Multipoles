@@ -19,45 +19,35 @@ other=seaborn.color_palette()[4]
 #Reading
 #######################################################################
 #Ran
-ran_1 = ascii.read('../data/out/mean_xi/mean_ran_{}_redshift.txt'.format(2*87**3))
-ran_2 = ascii.read('../data/out/mean_xi/mean_ran_{}_redshift.txt'.format(4*87**3))
-ran_4 = ascii.read('../data/out/mean_xi/mean_ran_{}_redshift.txt'.format(8*87**3))
-ran_8 = ascii.read('../data/out/mean_xi/mean_ran_{}_redshift.txt'.format(16*87**3))
+ran_1 = ascii.read('../data/out/mean_xi/mean_ran_{}_smallscale.txt'.format(2*87**3))
+ran_2 = ascii.read('../data/out/mean_xi/mean_ran_{}_smallscale.txt'.format(4*87**3))
+ran_4 = ascii.read('../data/out/mean_xi/mean_ran_{}_smallscale.txt'.format(8*87**3))
+ran_8 = ascii.read('../data/out/mean_xi/mean_ran_{}_smallscale.txt'.format(16*87**3))
 
 #RanCross
-rc_1 = ascii.read('../data/out/mean_xi/mean_rancross_{}_redshift.txt'.format(87**3))
-rc_2 = ascii.read('../data/out/mean_xi/mean_rancross_{}_redshift.txt'.format(2*87**3))
-rc_4 = ascii.read('../data/out/mean_xi/mean_rancross_{}_redshift.txt'.format(4*87**3))
-rc_8 = ascii.read('../data/out/mean_xi/mean_rancross_{}_redshift.txt'.format(8*87**3))
+rc_1 = ascii.read('../data/out/mean_xi/mean_rancross_{}_smallscale.txt'.format(87**3))
+rc_2 = ascii.read('../data/out/mean_xi/mean_rancross_{}_smallscale.txt'.format(2*87**3))
+rc_4 = ascii.read('../data/out/mean_xi/mean_rancross_{}_smallscale.txt'.format(4*87**3))
+rc_8 = ascii.read('../data/out/mean_xi/mean_rancross_{}_smallscale.txt'.format(8*87**3))
 
 #RanSplit
-rs_1 = ascii.read('../data/out/mean_xi/mean_ransplit_{}_redshift.txt'.format(87**3))
-rs_2 = ascii.read('../data/out/mean_xi/mean_ransplit_{}_redshift.txt'.format(2*87**3))
-rs_4 = ascii.read('../data/out/mean_xi/mean_ransplit_{}_redshift.txt'.format(4*87**3))
-rs_8 = ascii.read('../data/out/mean_xi/mean_ransplit_{}_redshift.txt'.format(8*87**3))
-
-#Glass
-#g_1 = ascii.read('../data/out/mean_xi/mean_glass_{}_redshift.txt'.format(87**3))
-#g_2 = ascii.read('../data/out/mean_xi/mean_glass_{}_redshift.txt'.format(2*87**3))
-#g_4 = ascii.read('../data/out/mean_xi/mean_glass_{}_redshift.txt'.format(4*87**3))
-#g_8 = ascii.read('../data/out/mean_xi/mean_glass_{}_redshift.txt'.format(8*87**3))
+rs_1 = ascii.read('../data/out/mean_xi/mean_ransplit_{}_smallscale.txt'.format(87**3))
+rs_2 = ascii.read('../data/out/mean_xi/mean_ransplit_{}_smallscale.txt'.format(2*87**3))
+rs_4 = ascii.read('../data/out/mean_xi/mean_ransplit_{}_smallscale.txt'.format(4*87**3))
+rs_8 = ascii.read('../data/out/mean_xi/mean_ransplit_{}_smallscale.txt'.format(8*87**3))
 
 #ZelRec
-zr_1 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_redshift.txt'.format(87**3))
-zr_2 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_redshift.txt'.format(2*87**3))
-zr_4 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_redshift.txt'.format(4*87**3))
-zr_8 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_redshift.txt'.format(8*87**3))
-
-#CCVT
-#c_1 = ascii.read('../../data/out/mean_xi/mean_c_{}_redshift.txt'.format(87**3))
+zr_1 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale.txt'.format(87**3))
+zr_2 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale.txt'.format(2*87**3))
+zr_4 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale.txt'.format(4*87**3))
+zr_8 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale.txt'.format(8*87**3))
 
 #Analytic
-xi_noran = ascii.read('../data/xi_l_noran_redshift.txt',names=['xi0','xi2','xi4','xi6'])
+xi_noran = ascii.read('../data/xi_l_noran_smallscale.txt',names=['xi0','xi2','xi4','xi6'])
 
 #######################################################################
 
-#nr = 2.5+np.linspace(5.,150.,30)[:-1] #Scales
-nr = np.linspace(5.,150.,30)[:-1]  / 0.695 #Scales
+nr = np.geomspace(0.5,40.,15)[:-1]  / 0.695 #Scales
 
 
 
@@ -103,7 +93,7 @@ for Nran in [87**3,2*87**3,4*87**3,8*87**3]:
 	#if Nran==87**3: ax1.plot(x,yc,color=other,marker='s',linestyle='-.',label='CCVT')
 	#ax1.plot(x,yg,color=blue,linestyle='--',label='Glass')
 	if Nran==87**3: ax1.set_ylabel(r'$\Delta \bar{\xi_0(r)}$',fontsize=fs)
-	#ax1.set_xscale('log')
+	ax1.set_xscale('log')
 	#ax1.set_yscale('log')
 	box = ax1.get_position()
 	ax1.set_position([box.x0, box.y0, box.width, box.height*.8])
@@ -204,7 +194,7 @@ for Nran in [87**3,2*87**3,4*87**3,8*87**3]:
 	#f.suptitle(r'$R = {}Mpc$'.format(nr[ir]),fontsize=15)
 	#f.subplots_adjust(hspace=0)
 	f.tight_layout()
-	f.savefig('../plots/mean/mean_{}.png'.format(Nran),dpi=f.dpi)
+	f.savefig('../plots/smallscale/mean/mean_{}.png'.format(Nran),dpi=f.dpi)
 	#plt.show()
 	plt.close()
 

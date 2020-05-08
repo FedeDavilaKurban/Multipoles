@@ -49,7 +49,7 @@ def get_xi0246(corr,nbins_m,nbins_s):
 bs = 1500.
 #nran = .5 #*Ngal
 nbins_m = 30
-nbins_s = 29
+nbins_s = 14
 names=['xi_0','xi_2','xi_4','xi_6']
 
 dcat = CSVCatalog('../data/Galaxies_HOD_001_z0.57.dat',names=['x','y','z','vx','vy','vz','cenflag','Mhalo','CeinID','Xcmhalo','Ycmhalo','Zcmhalo','VXcmhalo','VYcmhalo','VZcmhalo'],usecols=['x','y','z','vz'])
@@ -62,24 +62,24 @@ dcat['rs']=rs
 
 dcat['Position'] = transform.StackColumns(dcat['x'], dcat['y'], dcat['rs'])
 
-corr = SimulationBox2PCF('2d',dcat,np.linspace(5.,150.,nbins_s+1),Nmu=nbins_m,BoxSize=[bs,bs,bs], periodic=True)
+corr = SimulationBox2PCF('2d',dcat,np.geomspace(0.5,40.,nbins_s+1),Nmu=nbins_m,BoxSize=[bs,bs,bs], periodic=True)
 
 xi_l = get_xi0246(corr,nbins_m,nbins_s)
     
-ascii.write(xi_l,'../data/xi_l_noran_redshift.txt',overwrite=True,names=['xi_0','xi_2','xi_4','xi_6'])
+ascii.write(xi_l,'../data/xi_l_noran_smallscale.txt',overwrite=True,names=['xi_0','xi_2','xi_4','xi_6'])
     
 
 #Leo los xi_l (si no los calcule ya)
-xi_l =  ascii.read('../data/xi_l_noran_redshift.txt',names=['xi_0','xi_2','xi_4','xi_6']) 
+xi_l =  ascii.read('../data/xi_l_noran_smallscale.txt',names=['xi_0','xi_2','xi_4','xi_6']) 
     
     
-nr = 2.5+np.linspace(5.,150.,30)[:-1]
+nr = np.geomspace(0.5,40.,15)[:-1]  / 0.695 #Scales
 
 plt.plot(nr,(nr**2)*xi_l['xi_0'],label=r'$\xi_0(k)$')
 plt.plot(nr,(nr**2)*(-xi_l['xi_2']),label=r'$\xi_2(k)$')
 plt.plot(nr,(nr**2)*xi_l['xi_4'],label=r'$\xi_4(k)$')
 #plt.xscale('log')
 plt.legend()
-plt.savefig('../plots/xil_noran_redshift.png')
+plt.savefig('../plots/xil_noran_smallscale.png')
 plt.show()
 

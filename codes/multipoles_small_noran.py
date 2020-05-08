@@ -75,21 +75,23 @@ xi_l_small =  ascii.read('../data/xi_l_small_noran.txt',names=['xi_0','xi_2','xi
 #nr = 2.5+np.linspace(5.,150.,30)[:-1]
 nr = np.geomspace(.5,40.,30)[:-1]
 
-plt.plot(nr,(nr**2)*xi_l_small['xi_0'],label=r'$\xi_0(k)$')
-plt.plot(nr,(nr**2)*(-xi_l_small['xi_2']),label=r'$\xi_2(k)$')
-plt.plot(nr,(nr**2)*xi_l_small['xi_4'],label=r'$\xi_4(k)$')
+plt.plot(nr, xi_l_small['xi_0'],label=r'$\xi_0(k)$')
+plt.plot(nr, (-xi_l_small['xi_2']),label=r'$\xi_2(k)$')
+plt.plot(nr, xi_l_small['xi_4'],label=r'$\xi_4(k)$')
 
 
 xi_l =  ascii.read('../data/xi_l_noran.txt',names=['xi_0','xi_2','xi_4','xi_6']) 
 nr = 2.5+np.linspace(5.,150.,30)[:-1]
-plt.plot(nr,(nr**2)*xi_l['xi_0'],label=r'$\xi_0(k)$')
-plt.plot(nr,(nr**2)*(-xi_l['xi_2']),label=r'$\xi_2(k)$')
-plt.plot(nr,(nr**2)*xi_l['xi_4'],label=r'$\xi_4(k)$')
+plt.plot(nr, xi_l['xi_0'],label=r'$\xi_0(k)$')
+plt.plot(nr, (-xi_l['xi_2']),label=r'$\xi_2(k)$')
+plt.plot(nr, xi_l['xi_4'],label=r'$\xi_4(k)$')
 
 
 plt.xscale('log')
+plt.yscale('log')
 plt.legend()
-plt.savefig('../plots/xil_small_noran.png')
+plt.show()
+#plt.savefig('../plots/xil_small_noran.png')
 
 
 
