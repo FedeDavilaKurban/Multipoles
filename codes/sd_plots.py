@@ -19,42 +19,29 @@ other=seaborn.color_palette()[4]
 #Reading
 #######################################################################
 #Ran
-#ran_1 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ran_{}_redshift.txt'.format(87**3))
-ran_2 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ran_{}_redshift.txt'.format(2*87**3))
-ran_4 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ran_{}_redshift.txt'.format(4*87**3))
-ran_8 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ran_{}_redshift.txt'.format(8*87**3))
-ran_16 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ran_{}_redshift.txt'.format(16*87**3))
-
-#ran_rs_2 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ran_{}_redshift.txt'.format(2*87**3))
+ran_1 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ran_{}.txt'.format(2*87**3))
+ran_2 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ran_{}.txt'.format(4*87**3))
+ran_4 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ran_{}.txt'.format(8*87**3))
+ran_8 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ran_{}.txt'.format(16*87**3))
 
 #RanCross
-rc_1 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_rancross_{}_redshift.txt'.format(87**3))
-rc_2 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_rancross_{}_redshift.txt'.format(2*87**3))
-rc_4 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_rancross_{}_redshift.txt'.format(4*87**3))
-rc_8 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_rancross_{}_redshift.txt'.format(8*87**3))
+rc_1 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_rancross_{}.txt'.format(2*87**3))
+rc_2 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_rancross_{}.txt'.format(4*87**3))
+rc_4 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_rancross_{}.txt'.format(8*87**3))
+rc_8 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_rancross_{}.txt'.format(16*87**3))
 
 #RanSplit
-rs_1 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ransplit_{}_redshift.txt'.format(87**3))
-rs_2 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ransplit_{}_redshift.txt'.format(2*87**3))
-rs_4 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ransplit_{}_redshift.txt'.format(4*87**3))
-rs_8 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ransplit_{}_redshift.txt'.format(8*87**3))
-
-#Glass
-# g_1 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_glass_{}_redshift.txt'.format(87**3))
-# g_2 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_glass_{}_redshift.txt'.format(2*87**3))
-# g_4 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_glass_{}_redshift.txt'.format(4*87**3))
-# g_8 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_glass_{}_redshift.txt'.format(8*87**3))
+rs_1 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ransplit_{}.txt'.format(2*87**3))
+rs_2 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ransplit_{}.txt'.format(4*87**3))
+rs_4 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ransplit_{}.txt'.format(8*87**3))
+rs_8 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ransplit_{}.txt'.format(16*87**3))
 
 #ZelRec
-zr_1 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_redshift.txt'.format(87**3))
-zr_2 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_redshift.txt'.format(2*87**3))
-zr_4 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_redshift.txt'.format(4*87**3))
-zr_8 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_redshift.txt'.format(8*87**3))
+zr_1 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}.txt'.format(2*87**3))
+zr_2 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}.txt'.format(4*87**3))
+zr_4 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}.txt'.format(8*87**3))
+zr_8 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}.txt'.format(16*87**3))
 
-#zr_rs_1 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_redshift.txt'.format(87**3))
-
-#CCVT
-#c_1 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/std_c_{}.txt'.format(87**3))
 #######################################################################
 
 nr = 2.5+np.linspace(5.,150.,30)[:-1] #Scales
@@ -67,14 +54,11 @@ for ir in range(len(nr)):
 	#-----------------------------------------------------------------------
 	#PLOT 1 - xi_0 Monopole
 	#-----------------------------------------------------------------------
-	x = [87**3,2*87**3,4*87**3,8*87**3]
-	#yran = [ran_1['xi0'][ir], ran_2['xi0'][ir], ran_4['xi0'][ir], ran_8['xi0'][ir]]
-	yran = [ran_2['xi0'][ir], ran_4['xi0'][ir], ran_8['xi0'][ir], ran_16['xi0'][ir]]
+	x = [2*87**3,4*87**3,8*87**3,16*87**3]
+	yran = [ran_1['xi0'][ir], ran_2['xi0'][ir], ran_4['xi0'][ir], ran_8['xi0'][ir]]
 	yrc  = [rc_1['xi0'][ir] , rc_2['xi0'][ir],  rc_4['xi0'][ir],  rc_8['xi0'][ir]]
 	yrs  = [rs_1['xi0'][ir] , rs_2['xi0'][ir],  rs_4['xi0'][ir],  rs_8['xi0'][ir]]
-	#yg   = [g_1['xi0'][ir]  , g_2['xi0'][ir],   g_4['xi0'][ir],   g_8['xi0'][ir]]
 	yzr  = [zr_1['xi0'][ir] , zr_2['xi0'][ir],  zr_4['xi0'][ir],  zr_8['xi0'][ir]]
-	#yc   = [c_1['xi0'][ir]]
 
 	f = plt.figure(figsize=(6,10))
 	ax1 = f.add_subplot(311)#, sharex=ax2)
@@ -82,8 +66,7 @@ for ir in range(len(nr)):
 	ax1.plot(x,yrc,color=green,marker='s',linestyle='-.',label='Crossed Random')
 	ax1.plot(x,yzr,color=red,marker='o',linestyle='-',label='Zel. Rec.')
 	ax1.plot(x,yrs,color='k',marker='x',linestyle=':',label='Split Random')
-	#ax1.plot(87**3,yc,color=other,marker='s',linestyle='-.',label='CCVT')
-	#ax1.plot(x,yg,color='m',marker='X',linestyle='-.',label='Glass')
+
 	ax1.set_ylabel(r'$\sigma_{\xi_0(r)}$',fontsize=fs)
 	ax1.set_xscale('log')
 	ax1.set_yscale('log')
@@ -97,21 +80,17 @@ for ir in range(len(nr)):
 	#-----------------------------------------------------------------------
 	#PLOT 2 - xi_2 Dipole
 	#-----------------------------------------------------------------------
-	yran = [ran_2['xi2'][ir],ran_4['xi2'][ir],ran_8['xi2'][ir],ran_16['xi2'][ir]]
+	yran = [ran_1['xi2'][ir],ran_2['xi2'][ir],ran_4['xi2'][ir],ran_8['xi2'][ir]]
 	yrc  = [rc_1['xi2'][ir],rc_2['xi2'][ir],rc_4['xi2'][ir],rc_8['xi2'][ir]]
 	yrs  = [rs_1['xi2'][ir],rc_2['xi2'][ir],rc_4['xi2'][ir],rc_8['xi2'][ir]]
-	#yg   = [g_1['xi2'][ir],g_2['xi2'][ir],g_4['xi2'][ir],g_8['xi2'][ir]]
 	yzr  = [zr_1['xi2'][ir],zr_2['xi2'][ir],zr_4['xi2'][ir],zr_8['xi2'][ir]]
-	#yc   = [c_1['xi2'][ir]]
-
 
 	ax2 = f.add_subplot(312,sharex=ax1)
 	ax2.plot(x,yran,color=blue,marker='^',linestyle='--')
 	ax2.plot(x,yrc,color=green,marker='s',linestyle='-.')
 	ax2.plot(x,yzr,color=red,marker='o',linestyle='-')
-	#ax2.plot(87**3,yc,color=other,marker='s',linestyle='-.')
 	ax2.plot(x,yrs,color='k',marker='x',linestyle=':')
-	#ax2.plot(x,yg,color='m',marker='X',linestyle='-.')
+
 	ax2.set_ylabel(r'$\sigma_{\xi_2(r)}$',fontsize=fs)
 	ax2.set_xscale('log')
 	ax2.set_yscale('log')
@@ -121,20 +100,17 @@ for ir in range(len(nr)):
 	#-----------------------------------------------------------------------
 	#PLOT 3 - xi_4 Hexadecapole
 	#-----------------------------------------------------------------------
-	yran = [ran_2['xi4'][ir],ran_4['xi4'][ir],ran_8['xi4'][ir],ran_16['xi4'][ir]]
+	yran = [ran_1['xi4'][ir],ran_2['xi4'][ir],ran_4['xi4'][ir],ran_8['xi4'][ir]]
 	yrc  = [rc_1['xi4'][ir],rc_2['xi4'][ir],rc_4['xi4'][ir],rc_8['xi4'][ir]]
 	yrs  = [rs_1['xi4'][ir],rs_2['xi4'][ir],rs_4['xi4'][ir],rs_8['xi4'][ir]]
-	#yg   = [g_1['xi4'][ir],g_2['xi4'][ir],g_4['xi4'][ir],g_8['xi4'][ir]]
 	yzr  = [zr_1['xi4'][ir],zr_2['xi4'][ir],zr_4['xi4'][ir],zr_8['xi4'][ir]]
-	#yc   = [c_1['xi4'][ir]]
 
 	ax3 = f.add_subplot(313, sharex=ax2)
 	ax3.plot(x,yran,color=blue,marker='^',linestyle='--')
 	ax3.plot(x,yrc,color=green,marker='s',linestyle='-.')
 	ax3.plot(x,yzr,color=red,marker='o',linestyle='-')
 	ax3.plot(x,yrs,color='k',marker='x',linestyle=':')
-	#ax3.plot(87**3,yc,color=other,marker='s',linestyle='-.')
-	#ax3.plot(x,yg,color='m',marker='X',linestyle='-.')
+
 	ax3.set_ylabel(r'$\sigma_{\xi_4(r)}$',fontsize=fs)
 	ax3.set_xscale('log')
 	ax3.set_yscale('log')
@@ -159,41 +135,31 @@ for ir in range(len(nr)):
 #######################################################################
 #Nran = 87**3
 # 
-for Nran in [87**3,2*87**3,4*87**3,8*87**3]:
+for Nran in [2*87**3,4*87**3,8*87**3,16*87**3]:
 
 	#-----------------------------------------------------------------------
 	#PLOT 1 - xi_0 Monopole
 	#-----------------------------------------------------------------------
 	x = nr
-	if Nran==87**3: 
-		yran = ran_2['xi0']
+	if Nran==2*87**3: 
+		yran = ran_1['xi0']
 		yrc  = rc_1['xi0']
 		yrs  = rs_1['xi0']
-		#yg   = g_1['xi0']
 		yzr  = zr_1['xi0']
-
-		# yzr_rs  = zr_rs_1['xi0']
-		# yran_rs = ran_rs_2['xi0']
-
-
-		#yc = c_1['xi0']
-	if Nran==2*87**3: 
-		yran = ran_4['xi0']
+	if Nran==4*87**3: 
+		yran = ran_2['xi0']
 		yrc  = rc_2['xi0']
 		yrs  = rs_2['xi0']
-		#yg   = g_2['xi0']
 		yzr  = zr_2['xi0']
-	if Nran==4*87**3: 
-		yran = ran_8['xi0']
+	if Nran==8*87**3: 
+		yran = ran_4['xi0']
 		yrc  = rc_4['xi0']
 		yrs  = rs_4['xi0']
-		#yg   = g_4['xi0']
 		yzr  = zr_4['xi0']
-	if Nran==8*87**3: 
-		yran = ran_16['xi0']
+	if Nran==16*87**3: 
+		yran = ran_8['xi0']
 		yrc  = rc_8['xi0']
 		yrs  = rs_8['xi0']
-		#yg   = g_8['xi0']
 		yzr  = zr_8['xi0']
 
 
@@ -224,34 +190,25 @@ for Nran in [87**3,2*87**3,4*87**3,8*87**3]:
 	#-----------------------------------------------------------------------
 	#PLOT 2 - xi_2 Dipole
 	#-----------------------------------------------------------------------
-	if Nran==87**3: 
-		yran = ran_2['xi2']
+	if Nran==2*87**3: 
+		yran = ran_1['xi2']
 		yrc  = rc_1['xi2']
 		yrs  = rs_1['xi2']
-		#yg   = g_1['xi2']
 		yzr  = zr_1['xi2']
-
-		# yran_rs = ran_rs_2['xi2']
-		# yzr_rs  = zr_rs_1['xi2']
-
-		#yc = c_1['xi2']
-	if Nran==2*87**3: 
-		yran = ran_4['xi2']
+	if Nran==4*87**3: 
+		yran = ran_2['xi2']
 		yrc  = rc_2['xi2']
 		yrs  = rs_2['xi2']
-		#yg   = g_2['xi2']
 		yzr  = zr_2['xi2']
-	if Nran==4*87**3: 
-		yran = ran_8['xi2']
+	if Nran==8*87**3: 
+		yran = ran_4['xi2']
 		yrc  = rc_4['xi2']
 		yrs  = rs_4['xi2']
-		#yg   = g_4['xi2']
 		yzr  = zr_4['xi2']
-	if Nran==8*87**3: 
-		yran = ran_16['xi2']
+	if Nran==16*87**3: 
+		yran = ran_8['xi2']
 		yrc  = rc_8['xi2']
 		yrs  = rs_8['xi2']
-		#yg   = g_8['xi2']
 		yzr  = zr_8['xi2']
 
 
@@ -276,35 +233,25 @@ for Nran in [87**3,2*87**3,4*87**3,8*87**3]:
 	#-----------------------------------------------------------------------
 	#PLOT 3 - xi_4 Hexadecapole
 	#-----------------------------------------------------------------------
-	if Nran==87**3: 
-		yran = ran_2['xi4']
+	if Nran==2*87**3: 
+		yran = ran_1['xi4']
 		yrc  = rc_1['xi4']
 		yrs  = rs_1['xi4']
-		#yg   = g_1['xi4']
 		yzr  = zr_1['xi4']
-
-		# yran_rs = ran_rs_2['xi4']
-		# yzr_rs  = zr_rs_1['xi4']
-
-
-		#yc = c_1['xi4']
-	if Nran==2*87**3: 
-		yran = ran_4['xi4']
+	if Nran==4*87**3: 
+		yran = ran_2['xi4']
 		yrc  = rc_2['xi4']
 		yrs  = rs_2['xi4']
-		#yg   = g_2['xi4']
 		yzr  = zr_2['xi4']
-	if Nran==4*87**3: 
-		yran = ran_8['xi4']
+	if Nran==8*87**3: 
+		yran = ran_4['xi4']
 		yrc  = rc_4['xi4']
 		yrs  = rs_4['xi4']
-		#yg   = g_4['xi4']
 		yzr  = zr_4['xi4']
-	if Nran==8*87**3: 
-		yran = ran_16['xi4']
+	if Nran==16*87**3: 
+		yran = ran_8['xi4']
 		yrc  = rc_8['xi4']
 		yrs  = rs_8['xi4']
-		#yg   = g_8['xi4']
 		yzr  = zr_8['xi4']
 
 	ax3 = f.add_subplot(313, sharex=ax2)
