@@ -74,8 +74,8 @@ for space in ['redshift','smallscale']:
 
                 if space=='smallscale': 
                     fname = '/home/fede/Proyectos/Multipoles/data/out/{}_xi/{}_{}_{}_smallscale_Niter{}.txt'.format(stat,stat,method,Nran,Niter) #Nombre del archivo que quiero crear
-                    #nr = np.geomspace(0.5,40.,15)[:-1]
-                    nr = np.geomspace(0.5,90.,15)[:-1]
+                    nr = np.geomspace(0.5,40.,15)[:-1]
+                    #nr = np.geomspace(0.5,90.,15)[:-1]
 
                 print('file directory: ' + fdir)
                 print('file name for creation: ' + fname)

@@ -15,7 +15,7 @@ blue=seaborn.color_palette()[0]
 green=seaborn.color_palette()[2]
 other=seaborn.color_palette()[4]
 
-Niter = 500
+Niter = 100
 
 #######################################################################
 #Reading
@@ -42,8 +42,8 @@ rs_8 = ascii.read('../data/out/mean_xi/mean_ransplit_{}.txt'.format(16*87**3))
 zr_1 = ascii.read('../data/out/mean_xi/mean_zelrec_{}.txt'.format(2*87**3))
 zr_2 = ascii.read('../data/out/mean_xi/mean_zelrec_{}.txt'.format(4*87**3))
 zr_4 = ascii.read('../data/out/mean_xi/mean_zelrec_{}.txt'.format(8*87**3))
-#zr_8 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_Niter{}.txt'.format(16*87**3,Niter))
-zr_8 = ascii.read('../data/out/mean_xi/mean_zelrec_{}.txt'.format(16*87**3))
+zr_8 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_Niter{}.txt'.format(16*87**3,Niter))
+#zr_8 = ascii.read('../data/out/mean_xi/mean_zelrec_{}.txt'.format(16*87**3))
 
 #Analytic
 xi_noran = ascii.read('../data/xi_l_noran_redshift.txt',names=['xi0','xi2','xi4','xi6'])
@@ -51,7 +51,7 @@ xi_noran = ascii.read('../data/xi_l_noran_redshift.txt',names=['xi0','xi2','xi4'
 #######################################################################
 
 #nr = 2.5+np.linspace(5.,150.,30)[:-1] #Scales
-nr = np.linspace(5.,150.,30)[:-1]  / 0.695 #Scales
+nr = np.linspace(5.,150.,30)[:-1] #Scales
 
 fig, axes = plt.subplots(nrows=3, ncols=4, sharex=True, sharey=True, figsize=(18, 8))
 
@@ -83,10 +83,10 @@ for ax,Nran in zip(axes[0],[2*87**3,4*87**3,8*87**3,16*87**3]):
         yzr  = zr_8['xi0']-xi_noran['xi0']
 
 
-    ax.plot(x,yran,color='0.5',linewidth=2.,label='Random')
+    ax.plot(x,yran,color='k', linestyle=':',linewidth=2, label='Random')
     ax.plot(x,yrc,color=green,linestyle='-.',label='Crossed Random')
     ax.plot(x,yrs,color=blue,linestyle='--',label='Split Random')
-    ax.plot(x,yzr,color=red,linestyle='-',label='Zel. Rec.')
+    ax.plot(x,yzr,color=red,linestyle='-',label='Glass')
 
     #if Nran==2*87**3: ax1.set_ylabel(r'$\Delta \bar{\xi_0(r)}$',fontsize=fs)
 
@@ -126,7 +126,7 @@ for ax, Nran in zip(axes[1],[2*87**3,4*87**3,8*87**3,16*87**3]):
         yzr  = zr_8['xi2']-xi_noran['xi2']
 
 
-    ax.plot(x,yran,color='0.5',linewidth=2)
+    ax.plot(x,yran,color='k', linestyle=':',linewidth=2)
     ax.plot(x,yrc,color=green,linestyle='-.')
     ax.plot(x,yrs,color=blue,linestyle='--')
     ax.plot(x,yzr,color=red,linestyle='-')
@@ -165,7 +165,7 @@ for ax,Nran in zip(axes[2],[2*87**3,4*87**3,8*87**3,16*87**3]):
         yrs  = rs_8['xi4']-xi_noran['xi4']
         yzr  = zr_8['xi4']-xi_noran['xi4']
 
-    ax.plot(x,yran,color='0.5',linewidth=2)
+    ax.plot(x,yran,color='k', linestyle=':',linewidth=2)
     ax.plot(x,yrc,color=green,linestyle='-.')
     ax.plot(x,yrs,color=blue,linestyle='--')
     ax.plot(x,yzr,color=red,linestyle='-')
@@ -179,28 +179,28 @@ for ax,Nran in zip(axes[2],[2*87**3,4*87**3,8*87**3,16*87**3]):
 
     #if Nran != 2*87**3: ax3.set_yticklabels([])
 
-axes[0,0].set_ylabel(r'$\Delta \overline{\xi_0(r)}$',fontsize=fs)
-axes[1,0].set_ylabel(r'$\Delta \overline{\xi_2(r)}$',fontsize=fs)
-axes[2,0].set_ylabel(r'$\Delta \overline{\xi_4(r)}$',fontsize=fs)
+axes[0,0].set_ylabel(r'$\Delta \xi_0(s)$',fontsize=fs)
+axes[1,0].set_ylabel(r'$\Delta \xi_2(s)$',fontsize=fs)
+axes[2,0].set_ylabel(r'$\Delta \xi_4(s)$',fontsize=fs)
 
-axes[2,0].set_xlabel(r'$r$'+' [Mpc]',fontsize=fs)
-axes[2,1].set_xlabel(r'$r$'+' [Mpc]',fontsize=fs)
-axes[2,2].set_xlabel(r'$r$'+' [Mpc]',fontsize=fs)
-axes[2,3].set_xlabel(r'$r$'+' [Mpc]',fontsize=fs)
+axes[2,0].set_xlabel(r'$s\; [Mpc\,h^{-1}]$',fontsize=fs)
+axes[2,1].set_xlabel(r'$s\; [Mpc\,h^{-1}]$',fontsize=fs)
+axes[2,2].set_xlabel(r'$s\; [Mpc\,h^{-1}]$',fontsize=fs)
+axes[2,3].set_xlabel(r'$s\; [Mpc\,h^{-1}]$',fontsize=fs)
 
-axes[0,0].set_title(r'$n=n_\mathrm{Minerva}$',fontsize=fs)
-axes[0,1].set_title(r'$n=2n_\mathrm{Minerva}$',fontsize=fs)
-axes[0,2].set_title(r'$n=4n_\mathrm{Minerva}$',fontsize=fs)
-axes[0,3].set_title(r'$n=8n_\mathrm{Minerva}$',fontsize=fs)
+axes[0,0].set_title(r'$\alpha=2$',fontsize=fs)
+axes[0,1].set_title(r'$\alpha=4$',fontsize=fs)
+axes[0,2].set_title(r'$\alpha=8$',fontsize=fs)
+axes[0,3].set_title(r'$\alpha=16$',fontsize=fs)
 
-axes[0,0].legend(markerscale=1,ncol=2,loc='lower left')
+#axes[0,0].legend(markerscale=1,ncol=2,loc='lower left')
 #f.suptitle(r'$R = {}Mpc$'.format(nr[ir]),fontsize=15)
 fig.subplots_adjust(hspace=0)
 fig.tight_layout()
-#fig.savefig('../plots/mean/mean_Niter{}.png'.format(Niter),dpi=fig.dpi)
-#fig.savefig('../plots/mean/mean_Niter{}.pdf'.format(Niter),dpi=fig.dpi)
-fig.savefig('../plots/mean/mean.png',dpi=fig.dpi)
-fig.savefig('../plots/mean/mean.pdf',dpi=fig.dpi)
+fig.savefig('../plots/mean/mean_Niter{}.png'.format(Niter),dpi=fig.dpi)
+fig.savefig('../plots/mean/mean_Niter{}.pdf'.format(Niter),dpi=fig.dpi)
+#fig.savefig('../plots/mean/mean.png',dpi=fig.dpi)
+#fig.savefig('../plots/mean/mean.pdf',dpi=fig.dpi)
 
 #plt.show()
 plt.close()

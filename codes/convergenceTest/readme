@@ -1,0 +1,7 @@
+Quiero hacer un programa que estudie si converge el procedimiento de reconstruccion o no.
+
+Tengo que hacer la reconstruccion y plottear el P(k) 
+
+Debería incluir la escala de la frecuencia de nyquist y/o separación media
+
+Nombres de carpetas: pk_Nran_Nbins(del grid para la reconstruccion)_shiftmult(multiplicador del shift de las particulas en la reconstruccion)

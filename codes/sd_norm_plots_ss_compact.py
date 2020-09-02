@@ -19,7 +19,7 @@ blue=seaborn.color_palette()[0]
 green=seaborn.color_palette()[2]
 other=seaborn.color_palette()[4]
 
-Niter=50
+Niter=100
 
 #######################################################################
 #Reading
@@ -48,11 +48,12 @@ zr_1 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_s
 zr_2 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_smallscale.txt'.format(4*87**3))
 zr_4 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_smallscale.txt'.format(8*87**3))
 zr_8 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_smallscale_Niter{}.txt'.format(16*87**3,Niter))
+#zr_8 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_smallscale.txt'.format(16*87**3))
 
 #######################################################################
 
-#nr = np.geomspace(0.5,40.,15)[:-1]  / 0.695 #Scales
-nr = np.geomspace(0.5,90.,15)[:-1]  / 0.695 #Scales
+nr = np.geomspace(0.5,40.,15)[:-1] #Scales
+#nr = np.geomspace(0.5,90.,15)[:-1]  / 0.695 #Scales
 
 # #######################################################################
 # # STD_i/STD_Ran vs NRAN
@@ -136,29 +137,29 @@ x = nr
 fig, axes = plt.subplots(nrows=3, ncols=1, sharex=True, sharey=True, figsize=(6, 10))
 for ax, xil in zip(axes.flatten(),['xi0','xi2','xi4']):
     rc  = [rc_1[xil]/ran_1[xil], rc_2[xil]/ran_2[xil],  rc_4[xil]/ran_4[xil],  rc_8[xil]/ran_8[xil]]
-    rs  = [rs_1[xil]/ran_1[xil], rs_2[xil]/ran_2[xil],  rs_4[xil]/ran_4[xil],  rs_8[xil]/ran_8[xil]]
+    #rs  = [rs_1[xil]/ran_1[xil], rs_2[xil]/ran_2[xil],  rs_4[xil]/ran_4[xil],  rs_8[xil]/ran_8[xil]]
     zr  = [zr_1[xil]/ran_1[xil], zr_2[xil]/ran_2[xil],  zr_4[xil]/ran_4[xil],  zr_8[xil]/ran_8[xil]]
     
-    ax.plot(x,rc[0],color=green,linestyle='-',label='Cross. Ran.')
-    ax.plot(x,rc[1],color=green,linestyle='-')
-    ax.plot(x,rc[2],color=green,linestyle='-')
-    ax.plot(x,rc[3],color=green,linestyle='-')
+    ax.plot(x,rc[0],color=blue,linestyle=':',label='Cross. Ran.; '+r'$N_r$')
+    ax.plot(x,rc[1],color=blue,linestyle='--',label='Cross. Ran.; '+r'$2N_r$')
+    ax.plot(x,rc[2],color=blue,linestyle='-.',label='Cross. Ran.; '+r'$4N_r$')
+    ax.plot(x,rc[3],color=blue,linestyle='-',label='Cross. Ran.; '+r'$8N_r$')
 
-    ax.plot(x,rs[0],color=blue,linestyle='-',label='Split Ran.')
-    ax.plot(x,rs[1],color=blue,linestyle='-')
-    ax.plot(x,rs[2],color=blue,linestyle='-')
-    ax.plot(x,rs[3],color=blue,linestyle='-')
+    #ax.plot(x,rs[0],color=blue,linestyle='-',label='Split Ran.')
+    #ax.plot(x,rs[1],color=blue,linestyle='-')
+    #ax.plot(x,rs[2],color=blue,linestyle='-')
+    #ax.plot(x,rs[3],color=blue,linestyle='-')
 
-    ax.plot(x,zr[0],color=red,linestyle=':',label='ZelRec; '+r'$\delta_\mathrm{Minerva}$')
-    ax.plot(x,zr[1],color=red,linestyle='--',label='ZelRec; '+r'$2\delta_\mathrm{Minerva}$')
-    ax.plot(x,zr[2],color=red,linestyle='-.',label='ZelRec; '+r'$4\delta_\mathrm{Minerva}$')
-    ax.plot(x,zr[3],color=red,linestyle='-',label='ZelRec; '+r'8$\delta_\mathrm{Minerva}$')
+    ax.plot(x,zr[0],color=red,linestyle=':',label='Glass; '+r'$N_r$')
+    ax.plot(x,zr[1],color=red,linestyle='--',label='Glass; '+r'$2N_r$')
+    ax.plot(x,zr[2],color=red,linestyle='-.',label='Glass; '+r'$4N_r$')
+    ax.plot(x,zr[3],color=red,linestyle='-',label='Glass; '+r'8$N_r$')
 
-    if xil== 'xi0': ax.set_ylabel(r'$\sigma_{\xi_0(r)}$',fontsize=fs)
-    if xil== 'xi2': ax.set_ylabel(r'$\sigma_{\xi_2(r)}$',fontsize=fs)
+    if xil== 'xi0': ax.set_ylabel(r'$\sigma_{\xi_0}/\sigma_{\xi_{0_\mathrm{LS}}}$',fontsize=fs+6)
+    if xil== 'xi2': ax.set_ylabel(r'$\sigma_{\xi_2}/\sigma_{\xi_{2_\mathrm{LS}}}$',fontsize=fs+6)
     if xil== 'xi4': 
-        ax.set_ylabel(r'$\sigma_{\xi_4(r)}$',fontsize=fs)
-        ax.set_xlabel(r'$r\; [Mpc]$',fontsize=fs-4)
+        ax.set_ylabel(r'$\sigma_{\xi_4}/\sigma_{\xi_{4_\mathrm{LS}}}$',fontsize=fs+6)
+        ax.set_xlabel(r'$s\; [Mpc\,h^{-1}]$',fontsize=fs-2)
 
     ax.set_xscale('log')
     ax.set_yscale('log')
@@ -172,7 +173,9 @@ for ax, xil in zip(axes.flatten(),['xi0','xi2','xi4']):
 
 
 plt.tight_layout()
-axes[0].legend(markerscale=1)
+#axes[0].legend(markerscale=1,ncol=2)
 plt.savefig('/home/fede/Proyectos/Multipoles/plots/smallscale/sd_vs_r_norm/snorm_vs_r_ss_Niter{}.png'.format(Niter),dpi=fig.dpi)
 plt.savefig('/home/fede/Proyectos/Multipoles/plots/smallscale/sd_vs_r_norm/pdfs/snorm_vs_r_ss_Niter{}.pdf'.format(Niter),dpi=fig.dpi)
+#plt.savefig('/home/fede/Proyectos/Multipoles/plots/smallscale/sd_vs_r_norm/snorm_vs_r_ss.png',dpi=fig.dpi)
+#plt.savefig('/home/fede/Proyectos/Multipoles/plots/smallscale/sd_vs_r_norm/pdfs/snorm_vs_r_ss.pdf',dpi=fig.dpi)
 

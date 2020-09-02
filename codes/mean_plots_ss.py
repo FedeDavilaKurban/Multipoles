@@ -15,6 +15,8 @@ blue=seaborn.color_palette()[0]
 green=seaborn.color_palette()[2]
 other=seaborn.color_palette()[4]
 
+Niter = 100
+
 #######################################################################
 #Reading
 #######################################################################
@@ -41,6 +43,7 @@ zr_1 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale.txt'.format(2*8
 zr_2 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale.txt'.format(4*87**3))
 zr_4 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale.txt'.format(8*87**3))
 zr_8 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale.txt'.format(16*87**3))
+zr_8 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale_Niter{}.txt'.format(16*87**3,Niter))
 
 #Analytic
 xi_noran = ascii.read('../data/xi_l_noran_smallscale.txt',names=['xi0','xi2','xi4','xi6'])
@@ -97,8 +100,7 @@ for Nran in [16*87**3,2*87**3,4*87**3,8*87**3]:
 	#ax1.set_yscale('log')
 	box = ax1.get_position()
 	ax1.set_position([box.x0, box.y0, box.width, box.height*.8])
-	#ax1.legend(loc='upper center', bbox_to_anchor=(0.5, 1.25),ncol=3, fancybox=True, shadow=True,fontsize=lfs)
-	if Nran==2*87**3: ax1.legend(fontsize=lfs,loc='lower right')
+	#if Nran==2*87**3: ax1.legend(fontsize=lfs,loc='lower right')
 	ax1.tick_params(axis='x',which='both',bottom=False,top=False,labelbottom=False)
 	if Nran != 2*87**3: ax1.set_yticklabels([])
 
@@ -196,6 +198,8 @@ for Nran in [16*87**3,2*87**3,4*87**3,8*87**3]:
 	#f.subplots_adjust(hspace=0)
 	f.tight_layout()
 	f.savefig('../plots/smallscale/mean/mean_ss_{}.png'.format(Nran),dpi=f.dpi)
+	if Nran==16*87**3: f.savefig('../plots/smallscale/mean/mean_ss_{}_Niter{}.png'.format(Nran,Niter),dpi=f.dpi)
+
 	#plt.show()
 	plt.close()
 
