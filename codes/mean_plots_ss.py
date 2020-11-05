@@ -21,40 +21,45 @@ Niter = 100
 #Reading
 #######################################################################
 #Ran
-ran_1 = ascii.read('../data/out/mean_xi/mean_ran_{}_smallscale.txt'.format(2*87**3))
-ran_2 = ascii.read('../data/out/mean_xi/mean_ran_{}_smallscale.txt'.format(4*87**3))
-ran_4 = ascii.read('../data/out/mean_xi/mean_ran_{}_smallscale.txt'.format(8*87**3))
-ran_8 = ascii.read('../data/out/mean_xi/mean_ran_{}_smallscale.txt'.format(16*87**3))
+ran_1 = ascii.read('../data/out/mean_xi/mean_ran_{}_smallscale.txt'.format(2*87**3)) 
+ran_2 = ascii.read('../data/out/mean_xi/mean_ran_{}_smallscale.txt'.format(4*87**3)) 
+ran_4 = ascii.read('../data/out/mean_xi/mean_ran_{}_smallscale.txt'.format(8*87**3)) 
+ran_8 = ascii.read('../data/out/mean_xi/mean_ran_{}_smallscale.txt'.format(16*87**3)) 
 
 #RanCross
-rc_1 = ascii.read('../data/out/mean_xi/mean_rancross_{}_smallscale.txt'.format(2*87**3))
-rc_2 = ascii.read('../data/out/mean_xi/mean_rancross_{}_smallscale.txt'.format(4*87**3))
-rc_4 = ascii.read('../data/out/mean_xi/mean_rancross_{}_smallscale.txt'.format(8*87**3))
-rc_8 = ascii.read('../data/out/mean_xi/mean_rancross_{}_smallscale.txt'.format(16*87**3))
+rc_1 = ascii.read('../data/out/mean_xi/mean_rancross_{}_smallscale.txt'.format(2*87**3)) 
+rc_2 = ascii.read('../data/out/mean_xi/mean_rancross_{}_smallscale.txt'.format(4*87**3)) 
+rc_4 = ascii.read('../data/out/mean_xi/mean_rancross_{}_smallscale.txt'.format(8*87**3)) 
+rc_8 = ascii.read('../data/out/mean_xi/mean_rancross_{}_smallscale.txt'.format(16*87**3)) 
 
 #RanSplit
-rs_1 = ascii.read('../data/out/mean_xi/mean_ransplit_{}_smallscale.txt'.format(2*87**3))
-rs_2 = ascii.read('../data/out/mean_xi/mean_ransplit_{}_smallscale.txt'.format(4*87**3))
-rs_4 = ascii.read('../data/out/mean_xi/mean_ransplit_{}_smallscale.txt'.format(8*87**3))
-rs_8 = ascii.read('../data/out/mean_xi/mean_ransplit_{}_smallscale.txt'.format(16*87**3))
+rs_1 = ascii.read('../data/out/mean_xi/mean_ransplit_{}_smallscale.txt'.format(2*87**3)) 
+rs_2 = ascii.read('../data/out/mean_xi/mean_ransplit_{}_smallscale.txt'.format(4*87**3)) 
+rs_4 = ascii.read('../data/out/mean_xi/mean_ransplit_{}_smallscale.txt'.format(8*87**3)) 
+rs_8 = ascii.read('../data/out/mean_xi/mean_ransplit_{}_smallscale.txt'.format(16*87**3)) 
 
 #ZelRec
-zr_1 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale.txt'.format(2*87**3))
-zr_2 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale.txt'.format(4*87**3))
-zr_4 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale.txt'.format(8*87**3))
-zr_8 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale.txt'.format(16*87**3))
-zr_8 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale_Niter{}.txt'.format(16*87**3,Niter))
+#zr_1 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale.txt'.format(2*87**3)) 
+#zr_2 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale.txt'.format(4*87**3)) 
+#zr_4 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale.txt'.format(8*87**3)) 
+#zr_8 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale.txt'.format(16*87**3)) 
+#zr_8 = ascii.read('../data/out/mean_xi/mean_zelrec_{}_smallscale_Niter{}.txt'.format(16*87**3,Niter)) 
+
+zr_1 = ascii.read('../data/out/mean_xi/adaptativeNbins/mean_zelrec_{}_smallscale_Niter{}.txt'.format(2*87**3,Niter)) 
+zr_2 = ascii.read('../data/out/mean_xi/adaptativeNbins/mean_zelrec_{}_smallscale_Niter{}.txt'.format(4*87**3,Niter)) 
+zr_4 = ascii.read('../data/out/mean_xi/adaptativeNbins/mean_zelrec_{}_smallscale_Niter{}.txt'.format(8*87**3,Niter)) 
+zr_8 = ascii.read('../data/out/mean_xi/adaptativeNbins/mean_zelrec_{}_smallscale_Niter{}.txt'.format(16*87**3,Niter)) 
 
 #Analytic
-xi_noran = ascii.read('../data/xi_l_noran_smallscale.txt',names=['xi0','xi2','xi4','xi6'])
+xi_noran = ascii.read('../data/xi_l_noran_smallscale.txt',names=['xi0','xi2','xi4','xi6']) 
 
 #######################################################################
 
-nr = np.geomspace(0.5,40.,15)[:-1]  / 0.695 #Scales
+nr = np.geomspace(0.5,40.,15)[:-1] #Scales
 
+x=nr
 
-
-for Nran in [16*87**3,2*87**3,4*87**3,8*87**3]:
+for Nran in [2*87**3,4*87**3,8*87**3,16*87**3]:
 #for Nran in [87**3]:
 	#-----------------------------------------------------------------------
 	#PLOT 1 - xi_0 Monopole
@@ -67,6 +72,10 @@ for Nran in [16*87**3,2*87**3,4*87**3,8*87**3]:
 		#yg   = g_1['xi0']-xi_noran['xi0']
 		yzr  = zr_1['xi0']-xi_noran['xi0']
 		#yc = c_1['xi0']-xi_noran['xi0']
+
+		print(yran)
+		print(yrs)
+		print(xi_noran['xi0'])
 	if Nran==4*87**3: 
 		yran = ran_2['xi0']-xi_noran['xi0']
 		yrc  = rc_2['xi0']-xi_noran['xi0']
@@ -86,10 +95,11 @@ for Nran in [16*87**3,2*87**3,4*87**3,8*87**3]:
 		#yg   = g_8['xi0']-xi_noran['xi0']
 		yzr  = zr_8['xi0']-xi_noran['xi0']
 
-
+	
+	
 	f = plt.figure(figsize=(6,10))
 	ax1 = f.add_subplot(311)#, sharex=ax2)
-	ax1.plot(x,yran,color='0.5',linewidth=2.,label='Random')
+	ax1.plot(x,yran,color='k',ls=':',linewidth=2.,label='Random')
 	ax1.plot(x,yrc,color=green,linestyle='-.',label='Crossed Random')
 	ax1.plot(x,yrs,color=blue,linestyle='--',label='Split Random')
 	ax1.plot(x,yzr,color=red,linestyle='-',label='Zel. Rec.')
@@ -105,7 +115,7 @@ for Nran in [16*87**3,2*87**3,4*87**3,8*87**3]:
 	if Nran != 2*87**3: ax1.set_yticklabels([])
 
 	#ax1.set_xlim(-0.01,.01)
-	ax1.set_ylim(-.01,.01)
+	ax1.set_ylim(-.01,1.5)
 
 	#-----------------------------------------------------------------------
 	#PLOT 2 - xi_2 Dipole
@@ -138,7 +148,7 @@ for Nran in [16*87**3,2*87**3,4*87**3,8*87**3]:
 
 
 	ax2 = f.add_subplot(312,sharex=ax1)
-	ax2.plot(x,yran,color='0.5',linewidth=2)
+	ax2.plot(x,yran,color='k',ls=':',linewidth=2)
 	ax2.plot(x,yrc,color=green,linestyle='-.')
 	#if Nran==87**3: ax2.plot(x,yc,color=other,marker='s',linestyle='-.')
 	ax2.plot(x,yrs,color=blue,linestyle='--')
@@ -149,7 +159,8 @@ for Nran in [16*87**3,2*87**3,4*87**3,8*87**3]:
 	#ax2.set_yscale('log')
 	ax2.tick_params(axis='x',which='both',bottom=False,top=False,labelbottom=False)
 	if Nran != 2*87**3: ax2.set_yticklabels([])
-	ax2.set_ylim(-.04,.07)
+	#ax2.set_ylim(-.04,.07)
+	ax2.set_ylim(-.04,1.3)
 
 	#-----------------------------------------------------------------------
 	#PLOT 3 - xi_4 Hexadecapole
@@ -181,7 +192,7 @@ for Nran in [16*87**3,2*87**3,4*87**3,8*87**3]:
 		yzr  = zr_8['xi4']-xi_noran['xi4']
 
 	ax3 = f.add_subplot(313, sharex=ax2,sharey=ax2)
-	ax3.plot(x,yran,color='0.5',linewidth=2)
+	ax3.plot(x,yran,color='k',ls=':',linewidth=2)
 	ax3.plot(x,yrc,color=green,linestyle='-.')
 	ax3.plot(x,yrs,color=blue,linestyle='--')
 	ax3.plot(x,yzr,color=red,linestyle='-')

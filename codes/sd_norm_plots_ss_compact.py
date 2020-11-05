@@ -44,11 +44,16 @@ rs_4 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ransplit_{}
 rs_8 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_ransplit_{}_smallscale.txt'.format(16*87**3))
 
 #ZelRec
-zr_1 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_smallscale.txt'.format(2*87**3))
-zr_2 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_smallscale.txt'.format(4*87**3))
-zr_4 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_smallscale.txt'.format(8*87**3))
-zr_8 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_smallscale_Niter{}.txt'.format(16*87**3,Niter))
+#zr_1 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_smallscale.txt'.format(2*87**3))
+#zr_2 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_smallscale.txt'.format(4*87**3))
+#zr_4 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_smallscale.txt'.format(8*87**3))
+#zr_8 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_smallscale_Niter{}.txt'.format(16*87**3,Niter))
 #zr_8 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/sd_zelrec_{}_smallscale.txt'.format(16*87**3))
+
+zr_1 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/adaptativeNbins/sd_zelrec_{}_smallscale_Niter{}.txt'.format(2*87**3,Niter))
+zr_2 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/adaptativeNbins/sd_zelrec_{}_smallscale_Niter{}.txt'.format(4*87**3,Niter))
+zr_4 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/adaptativeNbins/sd_zelrec_{}_smallscale_Niter{}.txt'.format(8*87**3,Niter))
+zr_8 = ascii.read('/home/fede/Proyectos/Multipoles/data/out/sd_xi/adaptativeNbins/sd_zelrec_{}_smallscale_Niter{}.txt'.format(16*87**3,Niter))
 
 #######################################################################
 
@@ -174,8 +179,10 @@ for ax, xil in zip(axes.flatten(),['xi0','xi2','xi4']):
 
 plt.tight_layout()
 #axes[0].legend(markerscale=1,ncol=2)
-plt.savefig('/home/fede/Proyectos/Multipoles/plots/smallscale/sd_vs_r_norm/snorm_vs_r_ss_Niter{}.png'.format(Niter),dpi=fig.dpi)
-plt.savefig('/home/fede/Proyectos/Multipoles/plots/smallscale/sd_vs_r_norm/pdfs/snorm_vs_r_ss_Niter{}.pdf'.format(Niter),dpi=fig.dpi)
+#plt.savefig('/home/fede/Proyectos/Multipoles/plots/smallscale/sd_vs_r_norm/snorm_vs_r_ss_Niter{}.png'.format(Niter),dpi=fig.dpi)
+#plt.savefig('/home/fede/Proyectos/Multipoles/plots/smallscale/sd_vs_r_norm/pdfs/snorm_vs_r_ss_Niter{}.pdf'.format(Niter),dpi=fig.dpi)
+plt.savefig('/home/fede/Proyectos/Multipoles/plots/smallscale/sd_vs_r_norm/snorm_vs_r_ss_adaptativeNbins.png'.format(Niter),dpi=fig.dpi)
+plt.savefig('/home/fede/Proyectos/Multipoles/plots/smallscale/sd_vs_r_norm/pdfs/snorm_vs_r_ss_adaptativeNbins.pdf'.format(Niter),dpi=fig.dpi)
 #plt.savefig('/home/fede/Proyectos/Multipoles/plots/smallscale/sd_vs_r_norm/snorm_vs_r_ss.png',dpi=fig.dpi)
 #plt.savefig('/home/fede/Proyectos/Multipoles/plots/smallscale/sd_vs_r_norm/pdfs/snorm_vs_r_ss.pdf',dpi=fig.dpi)
 

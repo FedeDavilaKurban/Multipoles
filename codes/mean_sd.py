@@ -24,19 +24,19 @@ def get_statistic(method,stat,Nran,space):
             xi4.append( xil['xi_4'].data )
 
 
-    #Calculate Standard Deviation  
+    #Calculate Mean / Standard Deviation  
     stat_xi0 = []
     stat_xi2 = []	
     stat_xi4 = []		
     for ir in range(len(nr)):
         if stat=='mean':
-            stat_xi0.append( np.mean([item[ir] for item in xi0]) )
-            stat_xi2.append( np.mean([item[ir] for item in xi2]) )
-            stat_xi4.append( np.mean([item[ir] for item in xi4]) )
+            stat_xi0.append( np.nanmean([item[ir] for item in xi0]) )
+            stat_xi2.append( np.nanmean([item[ir] for item in xi2]) )
+            stat_xi4.append( np.nanmean([item[ir] for item in xi4]) )
         if stat=='sd':
-            stat_xi0.append( np.std([item[ir] for item in xi0],ddof=1) )
-            stat_xi2.append( np.std([item[ir] for item in xi2],ddof=1) )
-            stat_xi4.append( np.std([item[ir] for item in xi4],ddof=1) )
+            stat_xi0.append( np.nanstd([item[ir] for item in xi0],ddof=1) )
+            stat_xi2.append( np.nanstd([item[ir] for item in xi2],ddof=1) )
+            stat_xi4.append( np.nanstd([item[ir] for item in xi4],ddof=1) )
 
     stat_table = Table([stat_xi0, stat_xi2, stat_xi4, nr], names=('xi0', 'xi2','xi4','r'))
 
@@ -58,24 +58,31 @@ from astropy.table import Table
 #space = 'smallscale' # redhshift, smallscale
 
 N = 500 #Num de archivos de cada metodo
-Niter = 50 #Num de iteraciones de la reconstruccion de zeldovich. Cambia un poco el Pk de los ZelRec, nada mas.
+Niter = 100 #Num de iteraciones de la reconstruccion de zeldovich. Cambia un poco el Pk de los ZelRec, nada mas.
 
-for space in ['redshift','smallscale']:
-    for stat in ['mean','sd']:
-        for method in ['zelrec']:#,'ran','rancross','ransplit']:
-            for Nran in [16*87**3]:#,2*87**3,4*87**3,8*87**3]:
+for space in ['redshift','smallscale']: #redshift, smallscale
+    for stat in ['mean','sd']: #mean, sd
+        for method in ['zelrec']: #zelrec, ran, rancross, ransplit
+            for Nran in [2*87**3,4*87**3,8*87**3,16*87**3]:
 
                 fdir = '/home/fede/Proyectos/Multipoles/data/out/{}/'.format(method) #Directorio de donde leer archivos
-                if method=='zelrec': fdir = '/home/fede/Proyectos/Multipoles/data/out/Niter{}/'.format(Niter)
+                #if method=='zelrec': fdir = '/home/fede/Proyectos/Multipoles/data/out/Niter{}/'.format(Niter)
+                if method=='zelrec': fdir = '/home/fede/Proyectos/Multipoles/data/out/zelrec/adaptativeNbins/'
 
                 if space=='redshift': 
-                    fname = '/home/fede/Proyectos/Multipoles/data/out/{}_xi/{}_{}_{}_Niter{}.txt'.format(stat,stat,method,Nran,Niter) #Nombre del archivo que quiero crear
+                    if method=='zelrec': 
+                        fname = '/home/fede/Proyectos/Multipoles/data/out/{}_xi/adaptativeNbins/{}_{}_{}_Niter{}.txt'.format(stat,stat,method,Nran,Niter) #Nombre del archivo que quiero crear
+                    else:
+                        fname = '/home/fede/Proyectos/Multipoles/data/out/{}_xi/{}_{}_{}.txt'.format(stat,stat,method,Nran)
+
                     nr = np.linspace(5.,150.,30)[:-1]
 
                 if space=='smallscale': 
-                    fname = '/home/fede/Proyectos/Multipoles/data/out/{}_xi/{}_{}_{}_smallscale_Niter{}.txt'.format(stat,stat,method,Nran,Niter) #Nombre del archivo que quiero crear
+                    if method=='zelrec': 
+                        fname = '/home/fede/Proyectos/Multipoles/data/out/{}_xi/adaptativeNbins/{}_{}_{}_smallscale_Niter{}.txt'.format(stat,stat,method,Nran,Niter) #Nombre del archivo que quiero crear
+                    else:
+                        fname = '/home/fede/Proyectos/Multipoles/data/out/{}_xi/{}_{}_{}_smallscale.txt'.format(stat,stat,method,Nran)
                     nr = np.geomspace(0.5,40.,15)[:-1]
-                    #nr = np.geomspace(0.5,90.,15)[:-1]
 
                 print('file directory: ' + fdir)
                 print('file name for creation: ' + fname)
