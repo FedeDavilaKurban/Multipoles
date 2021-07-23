@@ -87,7 +87,7 @@ cr = FFTPower(c_mesh, mode='1d',dk=dk)
 cPk = cr.power
 
 plt.figure(figsize=(7,5))
-factor=(16.*np.pi*2)
+factor = 16.*np.pi*2
 plt.loglog(rPk['k']/factor, rPk['power'].real*len(ran),label='Random')
 plt.loglog(gPk['k']/factor, gPk['power'].real*len(glass),label='Glass',color=seaborn.color_palette()[2],ls='-.')
 plt.loglog(cPk['k']/factor, cPk['power'].real*len(ccvt),label='CCVT',color=seaborn.color_palette()[1],dashes=[5,2])
@@ -108,6 +108,16 @@ plt.savefig('../plots/pk_comparison_plot_sq.png')
 plt.savefig('../plots/pk_comparison_plot_sq.pdf')
 plt.show()
 plt.close()
+
+wdata = Table(np.column_stack((gPk['k'],gPk['power'].real)))
+ascii.write(wdata,'../data/glass_pk_16.dat',names=['k','P'])
+
+wdata = Table(np.column_stack((rPk['k'],rPk['power'].real)))
+ascii.write(wdata,'../data/random_pk_16.dat',names=['k','P'])
+
+wdata = Table(np.column_stack((cPk['k'],cPk['power'].real)))
+ascii.write(wdata,'../data/ccvt_pk_16.dat',names=['k','P'])
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
